@@ -38,6 +38,13 @@ jobs:
         run: yarn install
       - name: Build
         run: npm run build && cp ./dist/index.html ./dist/404.html
+        env:
+          VITE_EMAILAPI_FROM: ${{secrets.VITE_EMAILAPI_FROM}}
+          VITE_EMAILAPI_HOST: ${{secrets.VITE_EMAILAPI_HOST}}
+          VITE_EMAILAPI_PASS: ${{secrets.VITE_EMAILAPI_PASS}}
+          VITE_EMAILAPI_PORT: ${{secrets.VITE_EMAILAPI_PORT}}
+          VITE_EMAILAPI_TO: ${{secrets.VITE_EMAILAPI_TO}}
+          VITE_EMAILAPI_USER: ${{secrets.VITE_EMAILAPI_USER}}
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
