@@ -17,7 +17,7 @@ Marker.displayName = "Marker";
 const Map = () => {
   const position = [-16.069417764329977, -47.98242069414757];
   const icon = Leaflet.icon({
-    iconUrl: "./FavIcon.png",
+    iconUrl: "./Site_Favicon.png",
     iconSize: [50, 50],
     iconAnchor: [25, 25],
     popupAnchor: [0, -25],
@@ -36,7 +36,7 @@ const Map = () => {
         />
         <Marker position={position} icon={icon}>
           <Tooltip direction="top" offset={[0, -25]} opacity={1} permanent>
-            <span>MultiplusGroup</span>
+            <span>Multiplusgroup</span>
           </Tooltip>
         </Marker>
       </MapContainer>

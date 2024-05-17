@@ -46,7 +46,7 @@ const Contact = ({ formData }) => {
               <Img src="../assets/Multiplus_LogoEX.png" />
             </Section>
             <Section className=" px-6 pb-2">
-              <h1>Olá consultor MultiplusGroup,</h1>
+              <h1>Olá consultor Multiplusgroup,</h1>
               <Text className="!m-0 pb-4">
                 Você está recebendo este email pois {nome} acabou de enviar uma
                 solicitação de contato utilizando o formulário de contato
@@ -104,7 +104,7 @@ const Contact = ({ formData }) => {
             <Section className="m-0 flex items-center justify-center rounded-b-md bg-multiBrown p-5 text-center text-xs text-multiGray-light/50">
               <p>Por favor, não responder a esse email.</p>
               <p>
-                {`© 2024-${new Date().getFullYear()} | MultiplusGroup | www.multiplusgroup.com.br`}
+                {`© 2024-${new Date().getFullYear()} | Multiplusgroup | www.multiplusgroup.com.br`}
               </p>
               <a
                 href="{unsubscribe:https://api.elasticemail.com/contact/subscribe?version=2&pID=23945de0-aff4-4b5a-83f5-0a693cdd7afd}"

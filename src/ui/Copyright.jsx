@@ -9,7 +9,7 @@ const Copyright = () => {
         <Divider className="divider inverted" />
       </Grid>
       <Grid item>
-        <p>MultiplusGroup, atentendo você desde XXXX.</p>
+        <p>Multiplusgroup, atentendo você desde XXXX.</p>
         <span>
           &copy; Todos os direitos de criação reservados (2024 - {date}).
         </span>

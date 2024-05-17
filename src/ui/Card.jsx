@@ -13,7 +13,7 @@ const Card = ({
 }) => {
   return (
     <BaseCard
-      className={`card m-0 mx-auto rounded-lg p-0 ${className} transition-all duration-500 hover:scale-110`}
+      className={`card m-0 mx-auto rounded-lg p-0 ${className} transition-all duration-500 hover:scale-105`}
       sx={{
         maxHeight: `${height && `${height}px`}`,
         maxWidth: `${width}px !important`,

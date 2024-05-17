@@ -76,7 +76,7 @@ const DetalheExemplo = () => {
         media={
           <CardMedia
             component="img"
-            src="/LogoSQ_color_gradient.png"
+            src="/Site_Quadrada.png"
             height={300}
             width={300}
           />

@@ -20,7 +20,7 @@ const HeaderLogo = () => {
   }, [headerHeight]);
   return (
     <img
-      src="./LogoEX_color.png"
+      src="./Site_Extendida.png"
       alt="Logo Multiplus"
       className={`logo ${className}`}
     />

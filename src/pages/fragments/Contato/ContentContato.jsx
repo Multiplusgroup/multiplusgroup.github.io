@@ -41,14 +41,14 @@ const ContentContato = () => {
                 className="grid grid-cols-[auto_1fr] items-center gap-2"
               >
                 <FaIcon svgFile={mdiFacebook}>Facebook:</FaIcon>
-                <span>@MultiplusGroup</span>
+                <span>@Multiplusgroup</span>
               </Grid>
               <Grid
                 item
                 className="grid grid-cols-[auto_1fr] items-center gap-2"
               >
                 <FaIcon svgFile={mdiInstagram}>Instagram:</FaIcon>
-                <span>@MultiplusGroup</span>
+                <span>@Multiplusgroup</span>
               </Grid>
               <Grid
                 item
@@ -80,12 +80,12 @@ const ContentContato = () => {
       <Grid item className="flex w-[80%] flex-col justify-center gap-5">
         <AnimatedSection>
           <h1 id="formulario" className="mb-[2rem] text-center">
-            Envie sua mensagem para a MultiplusGroup
+            Envie sua mensagem para a Multiplusgroup
           </h1>
           <p className="text-center">
             Você possui alguma dúvida, deseja fazer alguma sugestão ou
             reclamação? Entre em contato com nossos agentes, preenchendo o
-            formulário abaixo que a MultiplusGroup responde!
+            formulário abaixo que a Multiplusgroup responde!
           </p>
         </AnimatedSection>
         <FormContato />

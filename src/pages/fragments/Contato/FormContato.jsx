@@ -232,7 +232,7 @@ const FormContato = () => {
             control={control}
           >
             Estou ciente de que as informações inseridas nesse formulário não
-            serão compartilhadas pela <strong>MultiplusGroup</strong> em
+            serão compartilhadas pela <strong>Multiplusgroup</strong> em
             hipótese alguma, com exceção de solicitações judiciais.
           </InputCheckbox>
         </AnimatedSection>
@@ -264,7 +264,7 @@ const FormContato = () => {
       )}
       {success && (
         <Toaster
-          message="Formulário enviado com sucesso e em breve um consultor da MultiplusGroup entrará em contato! "
+          message="Formulário enviado com sucesso e em breve um consultor da Multiplusgroup entrará em contato! "
           className="successMessage"
           severity="success"
         />
