@@ -1,4 +1,4 @@
-import NavigationButton from "@/components/header/NavigationButton";
+import NavigationButton from "@/components/Header/NavigationButton";
 import { NAV_LINKS as navLinks } from "@/constants/links";
 import { root } from "@/constants/pageElements";
 import { Tab, Tabs } from "@mui/material";
