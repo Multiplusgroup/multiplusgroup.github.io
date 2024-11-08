@@ -1,9 +1,9 @@
+import WhatsApp from "@/components/WhatsApp";
+import Footer from "@/ui/Footer";
+import Header from "@/ui/Header";
+import Main from "@/ui/Main";
+import Toaster from "@/ui/Toaster";
 import { Outlet, ScrollRestoration } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
 
 const Applayout = () => {
   return (
@@ -14,6 +14,8 @@ const Applayout = () => {
         <Outlet />
       </Main>
       <Footer />
+      <WhatsApp />
+      <Toaster />
     </>
   );
 };

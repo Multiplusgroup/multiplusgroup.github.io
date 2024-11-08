@@ -1,41 +1,32 @@
-import { Grid, CardMedia } from "@mui/material";
+import AnimatedSection from "@/ui/AnimatedSection";
+import { CardMedia, Grid2 as Grid } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const ErroGeral = ({ error, backButton }) => {
   return (
-    <Grid
-      item
-      className="center my-[4rem] grid h-full grid-cols-1 content-center items-center justify-center gap-8"
+    <AnimatedSection
+      className="mx-auto my-[4rem] flex w-[90%] grow flex-col items-center justify-center gap-5 md:w-[85%]"
+      animation="fade"
     >
-      <Grid
-        item
-        className=" mx-auto flex w-[50%] flex-col items-center justify-center"
-      >
-        <h1 className="text-center text-5xl">Algo inesperado acounteceu!</h1>
-        <CardMedia
-          image="/Erro.png"
-          component="img"
-          sx={{ minWidth: "0%", maxWidth: "450px" }}
-          className="mx-auto"
-        />
-
-        <p>
-          Caso você esteja vendo essa mensagem de forma freqüente, por favor
-          entre em{" "}
-          <NavLink
-            to="/contato"
-            target="_blank"
-            className="font-bold text-multiBrown no-underline hover:underline"
-          >
-            contato
-          </NavLink>{" "}
-          conosco, colocando na mensagem a descrição de erro mostrada abaixo:
-        </p>
-      </Grid>
-      <Grid
-        item
-        className="error mx-auto max-h-[250px]  w-[60%] flex-col gap-3 overflow-y-auto rounded-lg px-6 py-4 text-red-900 shadow-multi transition-all duration-500 lg:max-h-[400px]"
-      >
+      <h1 className="text-center">Algo inesperado acounteceu!</h1>
+      <CardMedia
+        image="/Erro.png"
+        component="img"
+        className="mx-auto w-[450px]"
+      />
+      <p>
+        Caso você esteja vendo essa mensagem de forma freqüente, por favor entre
+        em{" "}
+        <NavLink
+          to="/contato"
+          target="_blank"
+          className="font-bold text-multiBrown no-underline hover:underline"
+        >
+          contato
+        </NavLink>{" "}
+        conosco, colocando na mensagem a descrição de erro mostrada abaixo:
+      </p>
+      <Grid className="error h-[250px] flex-col gap-3 overflow-y-auto rounded-lg px-6 py-4 text-red-900 shadow-multi md:h-[300px]">
         <p>
           <strong>Nome do erro: </strong> {error.name}
         </p>
@@ -49,10 +40,8 @@ const ErroGeral = ({ error, backButton }) => {
           </span>
         </p>
       </Grid>
-      <Grid item className="mx-auto">
-        {backButton}
-      </Grid>
-    </Grid>
+      {backButton}
+    </AnimatedSection>
   );
 };
 

@@ -1,7 +1,13 @@
-import ContentSeguros from "./fragments/Seguros/ContentSeguros";
+import ContentSeguros from "@/components/pages/Seguros/ContentSeguros";
+import HeroSeguros from "@/components/pages/Seguros/HeroSeguros";
 
 const Seguros = () => {
-  return <ContentSeguros />;
+  return (
+    <>
+      <HeroSeguros />
+      <ContentSeguros />
+    </>
+  );
 };
 
 export default Seguros;

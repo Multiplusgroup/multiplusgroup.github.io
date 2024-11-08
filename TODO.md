@@ -1,0 +1,6 @@
+- [ ] Finalizar limpeza nos arquivos removendo "divs" desnecessárias
+  - [ ] Quem somos
+  - [ ] Index
+- [ ] Finalizar a formatação das página de detalhes
+- [ ] Padronizar imagens a serem colocadas no site
+- [ ] Alimentar o site com informações providas pelo cliente

@@ -1,41 +1,63 @@
-import {
-  useRouteError,
-  isRouteErrorResponse,
-  useNavigate,
-} from "react-router-dom";
-import { Grid, Button } from "@mui/material";
+import Card from "@/components/Card";
+import AnimatedSection from "@/ui/AnimatedSection";
+import Footer from "@/ui/Footer";
+import Header from "@/ui/Header";
+import { Button, CardMedia, Grid2 as Grid } from "@mui/material";
+import { NavLink, useNavigate, useRouteError } from "react-router-dom";
 
-import NaoEncontrada from "../pages/NaoEncontrada";
-import ErroGeral from "../pages/ErroGeral";
 const ErrorFallback = () => {
-  const path = window.location.href;
   const error = useRouteError();
   const navigate = useNavigate();
 
   return (
-    <Grid container>
-      <Grid item>
-        {isRouteErrorResponse(error) && error.status === 404 ? (
-          <NaoEncontrada
-            path={path}
-            backButton={
-              <Button className="button" onClick={() => navigate(-1)}>
-                Voltar
-              </Button>
-            }
-          />
-        ) : (
-          <ErroGeral
-            error={error}
-            backButton={
-              <Button className="button" onClick={() => navigate(-1)}>
-                Voltar
-              </Button>
-            }
-          />
-        )}
-      </Grid>
-    </Grid>
+    <>
+      <Header />
+      <AnimatedSection
+        className="mx-auto my-[4rem] flex !w-[90%] grow flex-col items-center justify-center gap-5 md:w-[85%]"
+        animation="fade"
+      >
+        <h1 className="text-center">Algo inesperado acounteceu!</h1>
+        <Card
+          media={<CardMedia image="/Erro.png" component="img" />}
+          className="h-fit shadow-none"
+        />
+        <p>
+          Caso você esteja vendo essa mensagem de forma freqüente, por favor
+          entre em{" "}
+          <NavLink
+            to="/contato"
+            target="_blank"
+            className="font-bold text-multiBrown no-underline hover:underline"
+          >
+            contato
+          </NavLink>{" "}
+          conosco, colocando na mensagem a descrição de erro mostrada abaixo:
+        </p>
+        <Grid className="error h-[300px] w-full flex-col gap-3 overflow-y-auto rounded-lg px-6 py-4 text-red-900 shadow-multi">
+          <p>
+            <strong>Nome do erro: </strong> {error?.name}
+          </p>
+          <p>
+            <strong>Mensagem do erro: </strong> {error?.message}
+          </p>
+          <p>
+            <strong>Detalhes do erro: </strong>
+            <span className="whitespace-pre text-wrap break-words">
+              {error?.stack}
+            </span>
+          </p>
+        </Grid>
+        <Button
+          className="button"
+          onClick={() => {
+            navigate(-1);
+          }}
+        >
+          Voltar
+        </Button>
+      </AnimatedSection>
+      <Footer />
+    </>
   );
 };
 

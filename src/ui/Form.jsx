@@ -1,4 +1,5 @@
 import { DevTool } from "@hookform/devtools";
+const isDev = import.meta.env.DEV;
 
 const Form = ({ children, className = "", ...props }) => {
   const { control } = props;
@@ -7,7 +8,7 @@ const Form = ({ children, className = "", ...props }) => {
       <form className={`form ${className}`} {...props}>
         {children}
       </form>
-      {control && <DevTool control={control} placement="bottom-left" />}
+      {isDev && <DevTool control={control} placement="bottom-left" />}
     </>
   );
 };

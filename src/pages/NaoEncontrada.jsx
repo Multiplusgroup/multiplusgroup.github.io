@@ -1,27 +1,22 @@
-import { Grid, CardMedia } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import Card from "@/components/Card";
+import AnimatedSection from "@/ui/AnimatedSection";
+import { Button, CardMedia, Grid2 as Grid } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const NaoEncontrada = ({ path, backButton }) => {
+const NaoEncontrada = ({ path }) => {
+  const navigate = useNavigate();
+
   return (
-    <Grid
-      item
-      className="center my-[4rem] grid h-full grid-cols-1 content-center items-center justify-center gap-8"
+    <AnimatedSection
+      className="mx-auto my-[4rem] flex !w-[90%] grow flex-col items-center justify-center gap-5 md:!w-[80%]"
+      animation="fade"
     >
-      <Grid
-        item
-        className=" mx-auto flex w-[50%] flex-col items-center justify-center gap-4"
-      >
-        <h1 className="text-center text-5xl">
-          Essa página não está disponível
-        </h1>
-
-        <CardMedia
-          image="/NaoEncontrada.png"
-          component="img"
-          sx={{ minWidth: "0%", maxWidth: "450px" }}
-          className="mx-auto"
-        />
-
+      <h1 className="text-center">Essa página não está disponível</h1>
+      <Card
+        media={<CardMedia image="/NaoEncontrada.png" component="img" />}
+        className="h-fit shadow-none"
+      />
+      <Grid className="space-y-4">
         <p>
           Acreditamos que o endereço digitado <strong>{path}</strong> foi
           inserido erroneamente, pois essa página não existe em nosso website.
@@ -41,10 +36,10 @@ const NaoEncontrada = ({ path, backButton }) => {
           acessar.
         </p>
       </Grid>
-      <Grid item className="mx-auto">
-        {backButton}
-      </Grid>
-    </Grid>
+      <Button className="button" onClick={() => navigate(-1)}>
+        Voltar
+      </Button>
+    </AnimatedSection>
   );
 };
 

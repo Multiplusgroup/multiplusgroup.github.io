@@ -1,6 +1,6 @@
-import { Grid } from "@mui/material";
-import { useRef } from "react";
+import { Grid2 as Grid } from "@mui/material";
 import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const AnimatedSection = ({
   children,
@@ -13,7 +13,7 @@ const AnimatedSection = ({
   return (
     <Grid
       ref={ref}
-      className={className}
+      className={`w-full ${className}`}
       style={{
         transform: isInView ? "none" : animation,
         opacity: isInView ? 1 : 0,

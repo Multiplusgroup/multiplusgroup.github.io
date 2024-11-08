@@ -11,8 +11,10 @@ import {
   Text,
   Tailwind,
 } from "@react-email/components";
-
 import config from "../../tailwind.config";
+
+const logo =
+  "https://raw.githubusercontent.com/Multiplusgroup/multiplusgroup.github.io/refs/heads/main/public/Site_Extendida.png";
 
 const Contact = ({ formData }) => {
   const {
@@ -37,15 +39,20 @@ const Contact = ({ formData }) => {
 
   return (
     <Tailwind config={config}>
-      <Html lang="pt" className="!m-[1rem] mx-auto flex h-screen items-center">
+      <Html lang="pt" className="mx-auto flex items-center">
         <Head />
         <Preview>Solicitação de contato</Preview>
-        <Body className=" mx-auto flex !max-w-[800px] rounded-md font-site text-multiBrown shadow-multi ">
-          <Container className=" flex !max-w-[800px] rounded-md !bg-multiGreen-xLight dark:!bg-multiGreen-xLight">
-            <Section>
-              <Img src="../assets/Multiplus_LogoEX.png" />
+        <Body className="!my-[1rem] mx-auto flex h-full !max-w-[800px] bg-multiGray-dark font-site text-multiBrown">
+          <Container className="flex !max-w-[800px] !bg-multiGreen-xLight dark:!bg-multiGreen-xLight">
+            <Section className="flex justify-center bg-multiGray-light py-4">
+              <Img
+                src={logo}
+                alt="Logo Multiplus"
+                height={50}
+                loading="eager"
+              />
             </Section>
-            <Section className=" px-6 pb-2">
+            <Section className="border-0 border-t-[2px] border-solid border-multiBrown px-6 pb-2">
               <h1>Olá consultor Multiplusgroup,</h1>
               <Text className="!m-0 pb-4">
                 Você está recebendo este email pois {nome} acabou de enviar uma
@@ -57,7 +64,7 @@ const Contact = ({ formData }) => {
                 formulário, redirecionada para sua caixa de mensagens.
               </Text>
             </Section>
-            <Section className="overflow-y-auto border-0 border-t-[2px] border-solid border-y-multiBrown">
+            <Section className="overflow-y-auto border-0 border-t-[2px] border-solid border-y-multiBrown/25">
               <Row className="m-1">
                 <Column>
                   <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
@@ -101,7 +108,7 @@ const Contact = ({ formData }) => {
                 </Column>
               </Row>
             </Section>
-            <Section className="m-0 flex items-center justify-center rounded-b-md bg-multiBrown p-5 text-center text-xs text-multiGray-light/50">
+            <Section className="m-0 flex items-center justify-center bg-multiBrown p-5 text-center text-xs text-multiGray-light/50">
               <p>Por favor, não responder a esse email.</p>
               <p>
                 {`© 2024-${new Date().getFullYear()} | Multiplusgroup | www.multiplusgroup.com.br`}

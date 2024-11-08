@@ -1,127 +1,11 @@
+@import "./fonts.css";
+@import "./variables.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: "Reddit Sans Condensed";
-    src: url("/fonts/RedditSansCondensed-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Black Italic";
-    src: url("/fonts/Roboto-BlackItalic.ttf") format("truetype");
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Black";
-    src: url("/fonts/Roboto-Black.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Bold";
-    src: url("/fonts/Roboto-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Bold Italic";
-    src: url("/fonts/Roboto-BoldItalic.ttf") format("truetype");
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Condensed Bold Italic";
-    src: url("/fonts/Roboto-BoldCondensedItalic.ttf") format("truetype");
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Condensed Bold";
-    src: url("/fonts/Roboto-BoldCondensed.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Condensed";
-    src: url("/fonts/Roboto-Condensed.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Condensed Italic";
-    src: url("/fonts/Roboto-CondensedItalic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Light";
-    src: url("/fonts/Roboto-Light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Italic";
-    src: url("/fonts/Roboto-Italic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Medium Italic";
-    src: url("/fonts/Roboto-MediumItalic.ttf") format("truetype");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Light Italic";
-    src: url("/fonts/Roboto-LightItalic.ttf") format("truetype");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Thin";
-    src: url("/fonts/Roboto-Thin.ttf") format("truetype");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Thin Italic";
-    src: url("/fonts/Roboto-ThinItalic.ttf") format("truetype");
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto Medium";
-    src: url("/fonts/Roboto-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Roboto";
-    src: url("/fonts/Roboto-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
   * {
     margin: 0;
     padding: 0;
@@ -131,10 +15,10 @@
     line-height: 1.5rem;
     /* user-select: none; */
     ::-webkit-scrollbar {
-      @apply h-[8px] w-[8px] bg-transparent !transition-all !duration-500;
+      @apply h-[8px] w-[8px] bg-transparent;
     }
     ::-webkit-scrollbar-thumb {
-      @apply bg-multiBrown  hover:bg-multiGreen-xLight;
+      @apply bg-multiBrown !transition-all !duration-500 hover:bg-multiGreen-dark;
     }
     ::-webkit-scrollbar-track {
       @apply bg-multiGreen-xLight hover:bg-multiBrown;
@@ -148,39 +32,33 @@
     }
   }
   body {
-    @apply bg-multiGray-light font-site text-multiGray-dark transition-all duration-500;
+    @apply bg-multiGray-light font-site text-multiGray-dark transition-all duration-300;
+  }
+
+  header {
+    @apply sticky top-0 z-10 text-multiBrown;
   }
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-title font-bold text-multiBrown;
+  h2 {
+    @apply font-title font-bold !leading-tight text-multiBrown;
   }
   h1 {
-    @apply text-3xl;
+    @apply text-3xl md:text-5xl;
   }
   h2 {
-    @apply text-2xl;
+    @apply text-xl md:text-3xl;
   }
   main {
-    @apply grid grow items-start;
-    & h1 {
-      @apply text-5xl;
-    }
-    & h2 {
-      @apply text-3xl;
-    }
+    @apply flex flex-col items-start;
   }
   a {
     @apply no-underline hover:underline;
   }
-  header {
-    @apply bg-multiGreen-xLight text-multiBrown shadow-multi;
+  p {
+    @apply leading-7;
   }
   #root {
-    @apply flex h-screen flex-col;
+    @apply relative grid h-screen grid-cols-1 grid-rows-[auto_1fr_auto] overflow-y-auto overflow-x-hidden transition-all duration-300;
   }
 }
 
@@ -189,7 +67,7 @@
     .menuItem {
       a,
       li {
-        @apply w-full  px-3 py-3 font-extrabold text-multiBrown no-underline transition-all duration-500 hover:bg-multiBrown hover:text-multiGreen-xLight;
+        @apply w-full px-3 py-3 font-extrabold text-multiBrown no-underline transition-all duration-500 hover:bg-multiBrown hover:text-multiGreen-xLight;
       }
       .active {
         @apply bg-multiBrown text-multiGreen-xLight hover:shadow-multi;
@@ -205,7 +83,7 @@
     }
   }
   .pageLink {
-    @apply text-multiBrown hover:text-multiGreen-xLight hover:underline;
+    @apply text-multiBrown hover:font-extrabold hover:text-multiGreen-dark hover:underline;
   }
   .partners {
     @apply mx-auto my-auto flex flex-row flex-wrap justify-center gap-5;
@@ -214,7 +92,7 @@
     @apply w-[24px];
   }
   .iconLink {
-    @apply flex items-center  justify-center gap-2 odd:w-[24px_1fr] even:grid-cols-[1fr_24px];
+    @apply flex items-center justify-center gap-2 odd:w-[24px_1fr] even:grid-cols-[1fr_24px];
   }
   .button {
     @apply rounded-lg bg-multiBrown font-bold text-multiGreen-xLight shadow-multi hover:bg-multiGreen-xLight hover:text-multiBrown;
@@ -248,12 +126,12 @@
     }
   }
   .navBar {
-    @apply fixed z-10 flex max-h-[100px] w-full items-center justify-between gap-4 bg-multiGreen-xLight px-3 py-2 transition-all duration-500;
+    @apply flex max-h-[100px] w-full items-center justify-between gap-4 bg-multiGreen-xLight px-3 py-2 transition-all duration-500;
     a {
       @apply hover:no-underline;
     }
     .MuiTab-root {
-      @apply max-w-[100%] items-center py-0 font-extrabold text-multiBrown transition-all duration-500 hover:bg-multiBrown  hover:text-multiGreen-xLight;
+      @apply max-w-[100%] items-center py-0 font-extrabold text-multiBrown transition-all duration-500 hover:bg-multiBrown hover:text-multiGreen-xLight;
       &.MuiButtonBase-root {
         @apply min-h-[48px];
       }
@@ -287,13 +165,12 @@
   }
   .card {
     &.cardProduto {
-      @apply bg-multiGreen-xLight/25 text-multiBrown shadow-multi;
+      @apply bg-multiGreen-xLight/25 text-multiBrown shadow-multi transition-all duration-500 hover:scale-105;
     }
   }
   .hero {
     line-height: 2rem;
-    @apply grid h-full w-full grid-cols-1
-      grid-rows-1 content-center bg-multiGreen-xLight text-center font-normal !transition-all !duration-500 md:grid-cols-[1fr_1fr];
+    @apply grid h-full w-full grid-cols-1 grid-rows-1 content-center bg-multiGreen-xLight text-center font-normal !transition-all !duration-500 md:grid-cols-[1fr_1fr];
     .heroCenter,
     .heroRight,
     .heroLeft {
@@ -339,20 +216,19 @@
       @apply px-1 pb-1 font-bold text-multiBrown;
     }
     & .formActions {
-      @apply mx-auto;
+      @apply w-full;
       & .formButtons {
-        @apply flex-col justify-end gap-4 md:flex-row;
+        @apply flex flex-col gap-4 md:flex-row md:!justify-end;
       }
     }
     & .counter {
       @apply grid pt-2 text-right text-xs text-multiBrown;
     }
     & .formError {
-      @apply -mb-2 rounded-none  px-2 font-bold text-red-900;
+      @apply -mb-2 rounded-none px-2 font-bold text-red-900;
     }
     & .MuiInputBase-root {
-      @apply rounded-none  bg-transparent px-2
-      font-bold text-multiGray-dark focus-within:bg-multiGreen-xLight/45 focus-within:text-multiBrown focus-within:shadow-multi-inset hover:bg-multiGreen-xLight/45 hover:text-multiBrown;
+      @apply rounded-none bg-transparent px-2 font-bold text-multiGray-dark focus-within:bg-multiGreen-xLight/45 focus-within:text-multiBrown focus-within:shadow-multi-inset hover:bg-multiGreen-xLight/45 hover:text-multiBrown;
     }
     & .MuiInputBase-root::after,
     .Mui-focused::after {
@@ -360,7 +236,7 @@
     }
   }
   .error {
-    @apply !bg-red-400/80;
+    @apply !bg-red-400/80 text-multiGray-light placeholder:!text-multiGray-light;
     &::-webkit-scrollbar-track {
       @apply rounded-br-lg rounded-tr-lg bg-red-900;
     }
@@ -371,7 +247,7 @@
   .checkbox {
     @apply grid grid-cols-[auto_1fr] items-center justify-start rounded-none px-0 py-1.5 text-multiBrown;
     & .MuiButtonBase-root {
-      @apply bg-transparent  text-multiBrown;
+      @apply bg-transparent text-multiBrown;
     }
     & .MuiButtonBase-root.Mui-disabled {
       @apply text-multiGray-light/50;
@@ -405,7 +281,7 @@
     &.MuiModal-root {
       @apply !transition-all !duration-700;
       & .MuiPaper-root {
-        @apply h-fit max-h-[90%] min-w-[75%] max-w-[75%] rounded-lg bg-multiGray-light p-5 text-multiGray-dark shadow-multi backdrop-blur-lg  transition-all duration-700;
+        @apply h-fit max-h-[90%] min-w-[75%] max-w-[75%] rounded-lg bg-multiGray-light p-5 text-multiGray-dark shadow-multi backdrop-blur-lg transition-all duration-700;
       }
     }
     & .MuiBackdrop-root,
@@ -436,7 +312,7 @@
         @apply bg-multiGreen-xLight text-multiBrown;
       }
       & .articleContent {
-        @apply py-5 text-multiGray-light;
+        @apply px-0 text-multiGray-light;
         & ul {
           @apply px-5;
           & li {

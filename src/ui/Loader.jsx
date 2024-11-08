@@ -1,13 +1,13 @@
-import { Grid, Dialog, CircularProgress } from "@mui/material";
+import { Grid2 as Grid, Dialog, CircularProgress } from "@mui/material";
 
 const Loader = ({ text }) => {
   return (
     <Dialog className="spinner modal" open>
-      <Grid container className="flex flex-col items-center gap-4 p-6">
-        <Grid item>
+      <Grid className="flex flex-col items-center gap-4 p-6">
+        <Grid>
           <CircularProgress />
         </Grid>
-        <Grid item>{text && <p>{text}</p>}</Grid>
+        <Grid>{text && <p>{text}</p>}</Grid>
       </Grid>
     </Dialog>
   );

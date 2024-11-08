@@ -1,7 +1,13 @@
-import ContentQuemSomos from "./fragments/QuemSomos/ContentQuemSomos";
+import ContentQuemSomos from "@/components/pages/QuemSomos/ContentQuemSomos";
+import HeroQuemSomos from "@/components/pages/QuemSomos/HeroQuemSomos";
 
 const QuemSomos = () => {
-  return <ContentQuemSomos />;
+  return (
+    <>
+      <HeroQuemSomos />
+      <ContentQuemSomos />
+    </>
+  );
 };
 
 export default QuemSomos;

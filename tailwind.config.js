@@ -6,8 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        site: "Reddit Sans Condensed",
-        title: "Roboto",
+        site: ['var(--site)'],
+        title: ['var(--title)'],
       },
       height: {
         screen: "100dvh",

@@ -1,34 +1,42 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Snackbar, Alert } from "@mui/material";
-import { resetFormData } from "../features/emails/emails.slice";
+import {
+  resetFormData,
+  resetToasterMessage,
+} from "@/features/emails/emails.slice";
 
-const Toaster = ({ message, className = "", ...props }) => {
-  const { alertOpen } = useSelector((state) => state.emails);
+const Toaster = ({ className = "", ...props }) => {
+  const { alertOpen, message, error, success } = useSelector(
+    (state) => state.emails,
+  );
   const dispatch = useDispatch();
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    dispatch(resetFormData());
+  const handleClose = () => {
+    dispatch(resetToasterMessage());
+    success && dispatch(resetFormData());
   };
+
   return (
-    <Snackbar
-      open={alertOpen}
-      autoHideDuration={6000}
-      anchorOrigin={{ vertical: "top", horizontal: "center" }}
-      onClose={handleClose}
-    >
-      <Alert
-        variant="filled"
-        sx={{ width: "100%" }}
-        className={`alert solid ${className}`}
-        {...props}
-      >
-        {message}
-      </Alert>
-    </Snackbar>
+    <>
+      {message.length > 0 && (
+        <Snackbar
+          open={alertOpen && true}
+          autoHideDuration={10000}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          onClose={handleClose}
+        >
+          <Alert
+            variant="filled"
+            sx={{ width: "100%" }}
+            className={`alert solid ${className}`}
+            severity={error ? "error" : "success"}
+            {...props}
+          >
+            {message}
+          </Alert>
+        </Snackbar>
+      )}
+    </>
   );
 };
 

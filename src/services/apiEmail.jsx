@@ -1,7 +1,6 @@
+import Contact from "@/emails/Contact";
 import { render } from "@react-email/render";
 import { Email } from "smtp-js-mailer";
-
-import Contact from "../emails/Contact";
 
 const host = import.meta.env.VITE_EMAILAPI_HOST;
 const port = import.meta.env.VITE_EMAILAPI_PORT;
