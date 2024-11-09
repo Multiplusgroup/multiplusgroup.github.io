@@ -5,11 +5,11 @@ import { useRef } from "react";
 const AnimatedSection = ({
   children,
   className = "",
-  animation = "translateY(50px)",
+  animation = "translateY(25px)",
   ...props
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   return (
     <Grid
       ref={ref}

@@ -7,7 +7,7 @@ const Loader = ({ text }) => {
         <Grid>
           <CircularProgress />
         </Grid>
-        <Grid>{text && <p>{text}</p>}</Grid>
+        <Grid>{text && <p className="font-extrabold">{text}</p>}</Grid>
       </Grid>
     </Dialog>
   );

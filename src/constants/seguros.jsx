@@ -153,9 +153,6 @@ const segurosExpander = [
 ];
 
 const promo = {
-  exemplo: {
-    cotacaoURL: "https://multiplus.aggilizador.com.br/auto",
-  },
   auto: {
     cotacaoURL: "https://multiplus.aggilizador.com.br/auto",
   },

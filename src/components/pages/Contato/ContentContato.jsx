@@ -1,3 +1,4 @@
+import AnimatedDivider from "@/components/AnimatedDivider";
 import FaIcon from "@/components/IconCustom";
 import FormContato from "@/components/pages/Contato/FormContato";
 import Map from "@/components/pages/Contato/Map";
@@ -9,12 +10,12 @@ import {
   mdiPhone,
   mdiWhatsapp,
 } from "@mdi/js";
-import { Divider, Grid2 as Grid } from "@mui/material";
+import { Grid2 as Grid } from "@mui/material";
 
 const ContentContato = () => {
   return (
     <>
-      <AnimatedSection className="mx-auto my-[4rem] flex !w-[90%] flex-col justify-center gap-5 md:!w-[80%]">
+      <AnimatedSection className="mx-auto mt-[4rem] flex !w-[90%] flex-col justify-center gap-5 md:!w-[80%]">
         <h1 className="mb-[2rem] text-center">Localização e redes sociais</h1>
         <Grid className="mx-auto flex flex-col items-center justify-center gap-[1rem] lg:flex-row lg:justify-around">
           <Grid className="flex flex-col items-center gap-[1rem] lg:items-start">
@@ -44,22 +45,19 @@ const ContentContato = () => {
           </Grid>
           <Map />
         </Grid>
-        <Divider
-          className="justify-self-around mx-auto w-[80%] bg-multiBrown/50"
-          variant="middle"
-        />
       </AnimatedSection>
-      <AnimatedSection className="mx-auto flex !w-[90%] flex-col justify-center gap-5 md:!w-[80%]">
+      <AnimatedDivider />
+      <AnimatedSection className="mx-auto mb-[4rem] flex !w-[90%] flex-col justify-center gap-5 md:!w-[80%]">
         <h1 id="formulario" className="mb-[2rem] text-center">
           Envie sua mensagem para a Multiplusgroup
         </h1>
-        <p className="text-center">
+        <p>
           Você possui alguma dúvida, deseja fazer alguma sugestão ou reclamação?
           Entre em contato com nossos agentes, preenchendo o formulário abaixo
           que a Multiplusgroup responde!
         </p>
+        <FormContato />
       </AnimatedSection>
-      <FormContato />
     </>
   );
 };

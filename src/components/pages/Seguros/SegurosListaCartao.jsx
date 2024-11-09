@@ -7,7 +7,6 @@ import {
   CardContent,
   CardHeader,
   CardMedia,
-  Divider,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -80,10 +79,6 @@ const SegurosCartao = ({ lista }) => {
           </AnimatedSection>
         );
       })}
-      <Divider
-        className="divider mx-auto w-[75%] md:col-span-2 xl:col-span-4"
-        variant="middle"
-      />
       <SeguroDetalhe
         handleToggle={handleToggle}
         open={isOpen}

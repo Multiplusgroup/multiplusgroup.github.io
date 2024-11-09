@@ -10,12 +10,15 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-const Expander = ({ item }) => {
+const SeguroExpander = ({ item }) => {
   const { titulo, detalhe, cotacaoURL } = item;
   return (
-    <Accordion className="bg-transparent shadow-none" disableGutters>
+    <Accordion
+      className="!rounded-none bg-transparent shadow-multi"
+      disableGutters
+    >
       <AccordionSummary
-        className="bg-multiGreen-xLight font-title text-2xl font-extrabold text-multiBrown"
+        className="bg-multiGreen-xLight px-6 py-2 font-title text-xl font-extrabold text-multiBrown md:text-3xl"
         expandIcon={
           <IconButton className="button rounded-full shadow-none hover:bg-multiBrown hover:text-multiGreen-xLight">
             <ExpandMore />
@@ -40,4 +43,4 @@ const Expander = ({ item }) => {
   );
 };
 
-export default Expander;
+export default SeguroExpander;

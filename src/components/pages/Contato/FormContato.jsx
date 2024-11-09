@@ -53,7 +53,7 @@ const FormContato = () => {
 
   return (
     <Form
-      className="mx-auto mb-[4rem] mt-5 flex w-[90%] flex-col gap-4 py-5 md:grid md:w-[80%] md:grid-cols-3"
+      className="mx-auto flex flex-col gap-4 py-5 md:grid md:grid-cols-3"
       onSubmit={handleSubmit(submitForm)}
       control={control}
       noValidate

@@ -4,12 +4,10 @@ import AnimatedSection from "@/ui/AnimatedSection";
 const SeguroAuto = () => {
   return (
     <>
-      <AnimatedSection className="mx-auto flex flex-col justify-center gap-5">
-        <Hero type="heroCenter">
-          <h1>Callout do seguro</h1>
-          <p>Podemos colocar uma imagem aqui se quiser</p>
-        </Hero>
-      </AnimatedSection>
+      <Hero type="heroCenter" color="heroOverlay">
+        <h1>Callout do seguro</h1>
+        <p>Podemos colocar uma imagem aqui se quiser</p>
+      </Hero>
       <AnimatedSection className="mx-auto my-[4rem] flex !w-[90%] flex-col justify-center gap-5 md:!w-[80%]">
         <p>
           Proteger seu veículo contra imprevistos é essencial para garantir
