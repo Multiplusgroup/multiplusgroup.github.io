@@ -1,5 +1,5 @@
-import ContatoForm from "@components/contato/ContatoForm";
-import Mapa from "@components/contato/Mapa";
+import ContatoForm from "@components/Contato/ContatoForm";
+import Mapa from "@components/Contato/Mapa";
 import FaIcon from "@components/FaIcon";
 import {
   mdiFacebook,
