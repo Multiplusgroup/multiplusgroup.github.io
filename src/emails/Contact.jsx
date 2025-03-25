@@ -1,118 +1,173 @@
+import config, { logo } from "@constants/emailConfig";
+import emailPreview from "@constants/emailPreview";
 import {
   Body,
-  Container,
+  Button,
   Column,
+  Container,
   Head,
   Html,
   Img,
   Preview,
   Row,
   Section,
-  Text,
   Tailwind,
+  Text,
 } from "@react-email/components";
-import config from "../../tailwind.config";
+import Heading from "@ui/Heading";
 
-const logo =
-  "https://raw.githubusercontent.com/Multiplusgroup/multiplusgroup.github.io/refs/heads/main/public/Site_Extendida.png";
-
-const Contact = ({ formData }) => {
-  const {
-    nome,
-    email,
-    telefone,
-    celular,
-    motivo,
-    preferencia,
-    horario,
-    mensagem,
-  } = formData ?? {
-    nome: Contact.PreviewProps.nome,
-    email: Contact.PreviewProps.email,
-    telefone: Contact.PreviewProps.telefone,
-    celular: Contact.PreviewProps.celular,
-    motivo: Contact.PreviewProps.motivo,
-    preferencia: Contact.PreviewProps.preferencia,
-    horario: Contact.PreviewProps.horario,
-    mensagem: Contact.PreviewProps.mensagem,
-  };
+const Contact = ({ data }) => {
+  const { ...formData } = data ?? emailPreview[2];
 
   return (
     <Tailwind config={config}>
-      <Html lang="pt" className="mx-auto flex items-center">
+      <Html lang="pt">
         <Head />
-        <Preview>Solicitação de contato</Preview>
-        <Body className="!my-[1rem] mx-auto flex h-full !max-w-[800px] bg-multiGray-dark font-site text-multiBrown">
-          <Container className="flex !max-w-[800px] !bg-multiGreen-xLight dark:!bg-multiGreen-xLight">
-            <Section className="flex justify-center bg-multiGray-light py-4">
-              <Img
-                src={logo}
-                alt="Logo Multiplus"
-                height={50}
-                loading="eager"
-              />
-            </Section>
-            <Section className="border-0 border-t-[2px] border-solid border-multiBrown px-6 pb-2">
-              <h1>Olá consultor Multiplusgroup,</h1>
-              <Text className="!m-0 pb-4">
-                Você está recebendo este email pois {nome} acabou de enviar uma
-                solicitação de contato utilizando o formulário de contato
-                existente em seu website.
-              </Text>
-              <Text className="!m-0">
-                Essa mensagem é apenas um resumo das informações postadas no
-                formulário, redirecionada para sua caixa de mensagens.
-              </Text>
-            </Section>
-            <Section className="overflow-y-auto border-0 border-t-[2px] border-solid border-y-multiBrown/25">
-              <Row className="m-1">
-                <Column>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>Nome: </b>
-                    {nome}
-                  </Text>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>E-mail: </b>
-                    {email}
-                  </Text>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>Telefone: </b>
-                    {telefone}
-                  </Text>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>Celular/WhatsApp: </b>
-                    {celular}
-                  </Text>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>Motivo: </b>
-                    {motivo}
-                  </Text>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>Preferência para resposta: </b>
-                    {preferencia}
-                  </Text>
-                  <Text className="!m-0 flex flex-col px-4 pb-2 sm:flex-row sm:gap-2">
-                    <b>Melhor horário para resposta: </b>
-                    {horario}
-                  </Text>
-                  <Text className="m-0 flex gap-2 px-4 pb-0">
-                    <b>Detalhes da mensagem:</b>
-                  </Text>
-                  {mensagem.split("\n").map((line, i) => {
-                    return (
-                      <Text key={i} className="m-0 flex gap-2 px-4 pb-0">
-                        {line}
-                      </Text>
-                    );
-                  })}
+        <Preview>
+          E-mail Redirecionado: Solicitação de contato (não responder esse
+          e-mail)
+        </Preview>
+        <Body className="bg-multi-gray font-page text-multiBrown items-center justify-center">
+          <Container className="bg-multi-white dark:!bg-multiGreen-xLight shadow-multi mx-auto flex !max-w-[800px]">
+            <Section className="bg-multi-green-light">
+              <Row className="px-6">
+                <Column className="flex w-full flex-col items-center justify-between py-3 md:flex-row md:py-0">
+                  <Heading
+                    as="h2"
+                    className="text-multi-brown font-title justify-self-center text-center md:justify-self-start md:text-start"
+                  >
+                    Resumo de solicitação de contato
+                  </Heading>
+                  <Img
+                    src={logo}
+                    alt="Multiplusgroup Logo"
+                    loading="eager"
+                    height={50}
+                    className="md:justify-self-end"
+                  />
                 </Column>
               </Row>
             </Section>
-            <Section className="m-0 flex items-center justify-center bg-multiBrown p-5 text-center text-xs text-multiGray-light/50">
-              <p>Por favor, não responder a esse email.</p>
-              <p>
-                {`© 2024-${new Date().getFullYear()} | Multiplusgroup | www.multiplusgroup.com.br`}
-              </p>
+            <Section className="border-multi-brown border-0 border-t-[1px] border-solid px-6">
+              <Heading className="text-multi-brown font-title">
+                Olá consultor Multiplusgroup,
+              </Heading>
+              <Text className="text-[16px]">
+                Você está recebendo este email pois{" "}
+                <strong>{formData.nome}</strong> acabou de enviar uma
+                solicitação de contato utilizando o formulário de contato
+                existente em seu website.
+              </Text>
+              <Text className="text-[16px]">
+                Essa mensagem é a mostra dos dados coletados no ato de
+                preenchimento do formulário formulário.
+              </Text>
+              <Text className="text-[16px]">
+                Por questões de praticidade, o meio de contato preferencial
+                selecionado pelo usuário apresenta um botão com o texto{" "}
+                <strong>Responder pelo meio preferencial</strong>, o qual
+                clidado executará uma das seguintes ações:
+              </Text>
+              <ul>
+                <li>
+                  Abre o <strong>cliente de email</strong> padrão para envio de
+                  reposta por e-mail
+                </li>
+                <li>
+                  Abre a aplicação de <strong>discagem para telefones</strong>{" "}
+                  padrão (se compatível) para reposta por telefone
+                </li>
+                <li>
+                  Abre o <strong>WhatApp Web</strong> ou{" "}
+                  <strong>WhatsApp Desktop</strong> para resposta por WhatsApp
+                </li>
+              </ul>
+            </Section>
+            <Section className="border-y-multi-brown/50 overflow-y-auto border-0 border-t-[1px] border-solid">
+              <Row className="px-6">
+                <Column>
+                  <Heading className="text-multi-brown font-title">
+                    Resumo da mensagem:
+                  </Heading>
+                </Column>
+              </Row>
+              <Row className="px-6">
+                <Column className="flex flex-col gap-4">
+                  <Text className="!m-0 flex flex-col sm:flex-row sm:gap-2">
+                    <strong>Nome:</strong>
+                    {formData.nome}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <b>E-mail: </b>
+                    {formData.email ?? "Não fornecido"}
+                    {formData.meioContato === "E-mail" && (
+                      <Button
+                        href={`mailto:${formData.email}`}
+                        className="bg-multi-brown text-multi-green-light flex items-center rounded-full px-4 py-2"
+                      >
+                        Responder pelo meio preferencial
+                      </Button>
+                    )}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <strong>Telefone:</strong>
+                    {formData.telefone ?? "Não fornecido"}
+                    {formData.meioContato === "Telefone" && (
+                      <Button
+                        href={`tel:${genPhoneNumber(formData.telefone)}`}
+                        className="bg-multi-brown text-multi-green-light flex items-center rounded-full px-4 py-2"
+                      >
+                        Responder pelo meio preferencial
+                      </Button>
+                    )}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <strong>Celular/WhatsApp:</strong>
+                    {formData.whatsapp ?? "Não fornecido"}
+                    {formData.meioContato === "WhatsApp" && (
+                      <Button
+                        href={`https://wa.me/${genPhoneNumber(formData.whatsapp)}`}
+                        className="bg-multi-brown text-multi-green-light flex items-center rounded-full px-4 py-2"
+                      >
+                        Responder pelo meio preferencial
+                      </Button>
+                    )}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <strong>Motivo:</strong>
+                    {formData.motivo}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <b>Preferência para resposta: </b>
+                    {formData.meioContato}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <b>Melhor horário para resposta: </b>
+                    {formData.horario}
+                  </Text>
+                  <Text className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2">
+                    <b>Detalhes da mensagem:</b>
+                  </Text>
+                  <Section className="border-multi-brown shadow-multi bg-multi-green-light/50 -mt-4 rounded-lg border-[1px] border-solid px-4 py-2">
+                    {formData.mensagem.split("\n").map((line, i) => {
+                      return (
+                        <Text
+                          className="!m-0 flex flex-col items-start justify-start p-0 sm:flex-row md:items-center md:gap-2"
+                          key={i}
+                        >
+                          {line}
+                        </Text>
+                      );
+                    })}
+                  </Section>
+                </Column>
+              </Row>
+            </Section>
+            <Section className="bg-multi-brown text-multi-white mt-6 flex items-center justify-center p-5 text-center text-xs">
+              <Text>Por favor, não responder a esse email.</Text>
+              <Text>
+                {`© ${new Date().getFullYear()} | Multiplusgroup | www.multiplusgroup.com.br`}
+              </Text>
               <a
                 href="{unsubscribe:https://api.elasticemail.com/contact/subscribe?version=2&pID=23945de0-aff4-4b5a-83f5-0a693cdd7afd}"
                 className="hidden"
@@ -127,16 +182,12 @@ const Contact = ({ formData }) => {
   );
 };
 
-Contact.PreviewProps = {
-  nome: "Alan Turing",
-  email: "alan.turing@email.com",
-  telefone: "(11) 1111-1111",
-  celular: "(11) 9 1111- 1111",
-  motivo: "Dúvidas",
-  preferencia: "WhatsApp",
-  horario: "Horário Comercial",
-  mensagem:
-    "Gostaria de obter informações mais detalhadas sobre cotações.\nEstou tentando fazer uma cotação mas me parece que o link não está funcionando.\nObrigado!\n\nAlan",
+const genPhoneNumber = (str) => {
+  let cleanedStr = str.replace(/[^0-9]/g, "");
+  if (cleanedStr.startsWith("55")) {
+    cleanedStr = cleanedStr.replace(/^55/, "+55");
+  } else cleanedStr = `+55${cleanedStr}`;
+  return cleanedStr;
 };
 
 export default Contact;

@@ -1,60 +1,81 @@
-import ErrorMessage from "@/components/Form/ErrorMessage";
+import ErrorMessage from "@components/Form/ErrorMessage";
 import {
-  TextField as BaseTextField,
   Grid2 as Grid,
   InputAdornment,
   InputLabel,
+  TextField,
 } from "@mui/material";
-import { forwardRef } from "react";
 
-const TextField = forwardRef((props, ref) => {
-  return <BaseTextField {...props} ref={ref} />;
-});
-TextField.displayName = "TextField";
-
-const InputText = ({
+const TextInput = ({
+  id,
+  type,
+  errors,
+  rows,
+  limit,
+  disabled,
+  variant = "filled",
+  placeholder,
+  fieldName,
   className = "",
+  charCount = 0,
   startIcon,
   endIcon,
+  hidden = false,
+  hiddenLabel = true,
   register,
-  InputProps,
-  charCount,
-  label,
+  required,
+  ref = null,
   ...props
 }) => {
-  const { id, type, errors, rows, limit, disabled } = props;
-
   return (
-    <Grid className={`${className}`}>
-      <InputLabel className="label" htmlFor={id}>
-        {label}
-      </InputLabel>
+    <Grid className={`${className}`} hidden={hidden}>
+      {hiddenLabel && (
+        <InputLabel
+          className={`!font-title !text-multi-brown !font-extrabold transition-all duration-500 ${errors && "!text-red-700"}`}
+          htmlFor={id}
+        >
+          {fieldName}
+        </InputLabel>
+      )}
       <TextField
-        className="w-full"
-        disabled={disabled}
-        multiline={rows && true}
-        rows={rows}
-        error={errors && true}
         id={id}
+        name={id}
+        ref={ref}
+        rows={rows}
         type={type}
-        autoComplete={id}
+        limit={limit}
+        error={errors}
+        variant={variant}
+        size={hiddenLabel && "small"}
+        className={`w-full ${errors && "error"}`}
+        disabled={disabled}
+        multiline={Boolean(rows)}
+        hiddenLabel={hiddenLabel}
+        label={!hiddenLabel ? fieldName : null}
+        placeholder={placeholder}
+        required={required}
         slotProps={{
-          ...InputProps,
           input: {
-            className: `${errors && "error"}`,
             startAdornment: startIcon && (
-              <InputAdornment position="start">{startIcon}</InputAdornment>
+              <InputAdornment
+                position="start"
+                className={`${errors && "!text-red-700"}`}
+              >
+                {startIcon}
+              </InputAdornment>
             ),
             endAdornment: endIcon && (
-              <InputAdornment position="start">{endIcon}</InputAdornment>
+              <InputAdornment
+                position="end"
+                className={`${errors && "!text-red-700"}`}
+              >
+                {endIcon}
+              </InputAdornment>
             ),
           },
-          inputProps: {
-            name: id,
-          },
         }}
-        {...props}
         {...register}
+        {...props}
       />
       {errors && <ErrorMessage text={errors.message} />}
       {limit && !errors && (
@@ -70,4 +91,4 @@ const InputText = ({
   );
 };
 
-export default InputText;
+export default TextInput;

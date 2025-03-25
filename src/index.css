@@ -1,302 +1,176 @@
-@import "./fonts.css";
-@import "./variables.css";
+@import "./assets/css/fonts.css";
+@import "./assets/css/theme.css";
+@import "./assets/css/plugins.css";
+@import "./assets/css/utilities.css";
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    scroll-behavior: smooth;
-    line-height: 1.5rem;
-    /* user-select: none; */
-    ::-webkit-scrollbar {
-      @apply h-[8px] w-[8px] bg-transparent;
-    }
-    ::-webkit-scrollbar-thumb {
-      @apply bg-multiBrown !transition-all !duration-500 hover:bg-multiGreen-dark;
-    }
-    ::-webkit-scrollbar-track {
-      @apply bg-multiGreen-xLight hover:bg-multiBrown;
-    }
-    input:-webkit-autofill,
-    input:-webkit-autofill:focus {
-      background-color: transparent;
-      transition:
-        background-color 600000s 0s,
-        color 600000s 0s;
-    }
-  }
-  body {
-    @apply bg-multiGray-light font-site text-multiGray-dark transition-all duration-300;
-  }
-
-  header {
-    @apply sticky top-0 z-10 text-multiBrown;
-  }
-  h1,
-  h2 {
-    @apply font-title font-bold !leading-tight text-multiBrown;
-  }
-  h1 {
-    @apply text-3xl md:text-5xl;
-  }
-  h2 {
-    @apply text-xl md:text-3xl;
-  }
-  main {
-    @apply flex flex-col items-start;
-  }
-  a {
-    @apply no-underline hover:underline;
-  }
-  p {
-    @apply leading-7;
-  }
-  #root {
-    @apply relative grid h-screen grid-cols-1 grid-rows-[auto_1fr_auto] overflow-y-auto overflow-x-hidden transition-all duration-300;
-  }
+* {
+  @apply scrollbar-thin scrollbar-track-multi-brown scrollbar-thumb-multi-green-light;
 }
 
-@layer components {
-  .menu {
-    .menuItem {
-      a,
-      li {
-        @apply w-full px-3 py-3 font-extrabold text-multiBrown no-underline transition-all duration-500 hover:bg-multiBrown hover:text-multiGreen-xLight;
+body {
+  @apply bg-multi-white font-page text-multi-black transition-all duration-300;
+  & h1,
+  & h2,
+  & h3,
+  & h4 {
+    @apply font-title relative text-4xl leading-snug font-extrabold md:text-6xl;
+    &.marker {
+      @apply pl-[15px];
+      &::before {
+        @apply bg-multi-green-dark absolute left-0 mr-[15px] block h-full w-[5px] content-[''];
       }
-      .active {
-        @apply bg-multiBrown text-multiGreen-xLight hover:shadow-multi;
-      }
-    }
-    .MuiMenu-paper {
-      @apply w-full rounded-lg bg-multiGreen-xLight/90 p-0 backdrop-blur-lg;
-    }
-    &.MuiModal-root,
-    .MuiBackdrop-root,
-    .MuiModal-backdrop {
-      @apply !bg-transparent backdrop-blur-none;
     }
   }
-  .pageLink {
-    @apply text-multiBrown hover:font-extrabold hover:text-multiGreen-dark hover:underline;
+  & h2 {
+    @apply text-3xl md:text-5xl;
   }
-  .partners {
-    @apply mx-auto my-auto flex flex-row flex-wrap justify-center gap-5;
+  & h3 {
+    @apply text-2xl md:text-4xl;
   }
-  .svgFile {
-    @apply w-[24px];
-  }
-  .iconLink {
-    @apply flex items-center justify-center gap-2 odd:w-[24px_1fr] even:grid-cols-[1fr_24px];
-  }
-  .button {
-    @apply rounded-lg bg-multiBrown font-bold text-multiGreen-xLight shadow-multi hover:bg-multiGreen-xLight hover:text-multiBrown;
-    &.inverted {
-      @apply bg-multiGreen-xLight font-bold text-multiBrown shadow-multi hover:bg-multiBrown hover:text-multiGreen-xLight;
-    }
-    &.buttonCTA {
-      @apply rounded-full bg-multiBrown px-6 py-4 font-extrabold !text-multiGreen-xLight !no-underline shadow-multi transition-all duration-500 hover:scale-105 hover:bg-multiBrown/25 hover:!text-multiBrown;
-    }
-    &.buttonFluid {
-      @apply w-[100%] py-2;
-    }
-    &.buttonSmall {
-      @apply w-[auto] !px-2;
-    }
-    &.buttonMedium {
-      @apply w-[auto] !px-4 !py-3;
-    }
-    &.buttonLarge {
-      @apply w-[auto] !px-6 !py-4;
-    }
-    &.textButton {
-      @apply bg-transparent shadow-none;
-    }
+  & h4 {
+    @apply text-xl md:text-3xl;
   }
 
-  .footer {
-    @apply mb-0 bg-multiBrown text-multiGreen-xLight;
-    .footerLink {
-      @apply text-multiGreen-xLight;
-    }
-  }
-  .navBar {
-    @apply flex max-h-[100px] w-full items-center justify-between gap-4 bg-multiGreen-xLight px-3 py-2 transition-all duration-500;
-    a {
-      @apply hover:no-underline;
-    }
-    .MuiTab-root {
-      @apply max-w-[100%] items-center py-0 font-extrabold text-multiBrown transition-all duration-500 hover:bg-multiBrown hover:text-multiGreen-xLight;
-      &.MuiButtonBase-root {
-        @apply min-h-[48px];
+  & #root {
+    @apply relative flex h-screen flex-col overflow-x-hidden overflow-y-auto scroll-smooth transition-all duration-300;
+    & header {
+      @apply bg-multi-green-light sticky top-0 z-10 flex h-[100px] items-center justify-between px-4 py-2;
+      &.inverted {
+        @apply !bg-multi-brown/25 shadow-multi drop-shadow-lg !backdrop-blur-sm;
+      }
+      & .logo {
+        @apply max-h-[80px] transition-all duration-500;
+      }
+      & .MuiTab-root {
+        @apply text-multi-brown hover:bg-multi-brown hover:text-multi-green-light max-w-[100%] items-center py-0 font-extrabold transition-all duration-300;
+        &.MuiButtonBase-root {
+          @apply max-h-[48px];
+        }
+      }
+      & .MuiTabs-indicator {
+        @apply bg-multi-brown/50;
       }
     }
-    .MuiTabs-indicator {
-      @apply bg-multiBrown/50;
-    }
-    &.inverted {
-      @apply !bg-multiBrown/25 shadow-multi !backdrop-blur-sm;
-    }
-  }
-  .footer {
-    @apply !mb-0 flex flex-col py-5 pb-3 pt-10;
-    .copyright {
-      @apply grid grid-flow-row text-center text-xs text-multiGray-light/50;
-      & .pageLink {
-        @apply text-multiGray-dark hover:text-multiGreen-xLight hover:underline;
+    & main {
+      @apply !m-0 flex grow flex-col items-start !p-0;
+      & section {
+        @apply h-fit last-of-type:mb-[4rem];
       }
     }
-  }
-  .divider {
-    @apply opacity-50;
-    &.MuiDivider-root {
-      @apply border-multiBrown/50;
-    }
-    &.inverted {
-      &.MuiDivider-root {
-        @apply border-multiGreen-xLight/50;
+    & footer {
+      @apply bg-multi-brown text-multi-white mb-0 flex flex-col items-center justify-center gap-5 px-16 py-8;
+      & .footer-link {
+        @apply text-multi-white underline-offset-4 hover:underline;
+      }
+      & .logo-footer {
+        @apply h-[150px];
+      }
+      & .copyright {
+        @apply text-multi-white col-span-2 grid grid-flow-row gap-2 pt-15 text-center text-xs;
+        & a {
+          @apply text-multi-white font-extrabold no-underline underline-offset-2 hover:underline;
+        }
       }
     }
-  }
-  .card {
-    &.cardProduto {
-      @apply bg-multiGreen-xLight/25 text-multiBrown shadow-multi transition-all duration-500 hover:scale-105;
-    }
-  }
-  .hero {
-    line-height: 2rem;
-    @apply grid h-full w-full grid-cols-1 grid-rows-1 content-center bg-multiGreen-xLight text-center font-normal !transition-all !duration-500 md:grid-cols-[1fr_1fr];
-    .heroCenter,
-    .heroRight,
-    .heroLeft {
-      @apply grid h-full content-center p-[2rem] !transition-all !duration-500 clip-path-full;
-    }
-    .heroCenter {
-      @apply !col-span-2 grid;
-    }
-    .heroLeft {
-      @apply md:pr-[7rem] md:clip-path-left;
-    }
-    .heroRight {
-      @apply md:col-start-2 md:pl-[7rem] md:clip-path-right;
-    }
-    .heroLink {
-      @apply font-extrabold no-underline;
-    }
-    .heroOverlay {
-      @apply bg-multiGreen-xLight/50 backdrop-blur-sm;
-      a {
-        @apply text-multiGray-dark underline-offset-4 hover:text-multiBrown hover:underline;
+    & .card {
+      @apply !m-0 !p-0;
+      &.card-produto {
+        @apply bg-multi-green-light/50 text-multi-brown shadow-multi hover:bg-multi-green-light transition-all duration-500 hover:-translate-y-[5px];
       }
     }
-  }
-  .logo {
-    @apply max-h-[80px] transition-all duration-500;
-  }
-  & .map {
-    @apply z-[1] !h-[400px] !w-[400px];
-    & .leaflet-popup .leaflet-popup-content-wrapper,
-    & .leaflet-tooltip {
-      @apply rounded-md border-none bg-multiBrown p-2 text-sm font-bold text-multiGreen-xLight shadow-multi;
-    }
-    & .leaflet-tooltip::before {
-      @apply border-t-multiBrown;
-    }
-    & .leaflet-popup .leaflet-popup-content {
-      @apply flex items-center justify-center;
-    }
-  }
-  .form {
-    & .label {
-      @apply px-1 pb-1 font-bold text-multiBrown;
-    }
-    & .formActions {
-      @apply w-full;
-      & .formButtons {
-        @apply flex flex-col gap-4 md:flex-row md:!justify-end;
+    & .error-message {
+      @apply scrollbar-thin scrollbar-track-hover:bg-red-500 scrollbar-track-red-900 scrollbar-hover:scrollbar-thumb-red-600 scrollbar-thumb-multi-white;
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-thumb {
+        @apply rounded-tr-lg rounded-br-lg;
       }
     }
-    & .counter {
-      @apply grid pt-2 text-right text-xs text-multiBrown;
-    }
-    & .formError {
-      @apply -mb-2 rounded-none px-2 font-bold text-red-900;
-    }
-    & .MuiInputBase-root {
-      @apply rounded-none bg-transparent px-2 font-bold text-multiGray-dark focus-within:bg-multiGreen-xLight/45 focus-within:text-multiBrown focus-within:shadow-multi-inset hover:bg-multiGreen-xLight/45 hover:text-multiBrown;
-    }
-    & .MuiInputBase-root::after,
-    .Mui-focused::after {
-      @apply border-[1px] border-solid border-multiBrown transition-transform duration-700;
-    }
-  }
-  .error {
-    @apply !bg-red-400/80 text-multiGray-light placeholder:!text-multiGray-light;
-    &::-webkit-scrollbar-track {
-      @apply rounded-br-lg rounded-tr-lg bg-red-900;
-    }
-    &::-webkit-scrollbar-thumb {
-      @apply rounded-br-lg rounded-tr-lg bg-multiGray-light hover:bg-red-600;
-    }
-  }
-  .checkbox {
-    @apply grid grid-cols-[auto_1fr] items-center justify-start rounded-none px-0 py-1.5 text-multiBrown;
-    & .MuiButtonBase-root {
-      @apply bg-transparent text-multiBrown;
-    }
-    & .MuiButtonBase-root.Mui-disabled {
-      @apply text-multiGray-light/50;
-    }
-    &.error {
-      @apply border-0 border-b-[1px] border-solid border-red-600 text-white;
-      & .MuiButtonBase-root {
-        @apply bg-transparent text-white;
+    & .hero {
+      @apply grid grid-cols-1 grid-rows-1 content-center font-normal drop-shadow-2xl !transition-all !duration-500 lg:grid-cols-2;
+      & .center,
+      & .left,
+      & .right {
+        @apply clip-path-rectangle !col-span-2 grid h-full !w-full content-center items-center justify-center gap-10 p-[2rem] text-center !transition-all !duration-500 ease-in-out;
+        & .btn-cta {
+          @apply animate-slide-top opacity-0;
+        }
+      }
+      & .left {
+        @apply lg:animate-slide-right transition-all transition-discrete lg:col-start-1 lg:!col-end-2 lg:px-[5rem] lg:text-start;
+        & .btn-cta {
+          @apply lg:justify-self-end;
+        }
+      }
+      & .right {
+        @apply lg:animate-slide-left w-full transition-all lg:!col-start-2 lg:px-[5rem] lg:text-end;
+        & .btn-cta {
+          @apply lg:justify-self-start;
+        }
+      }
+      & .overlay-green {
+        @apply bg-multi-green-light/65 transition-all duration-500;
+        & a {
+          @apply text-multi-black hover:!text-multi-brown font-extrabold underline-offset-4 hover:underline;
+        }
+      }
+      & .overlay-brown {
+        @apply bg-multi-brown/65 transition-all duration-500;
+        & a {
+          @apply text-multi-white hover:!text-multi-green-light font-extrabold underline-offset-4 hover:underline;
+        }
+      }
+      & .overlay-black {
+        @apply bg-multi-black/65 transition-all duration-500;
+        & a:not(.btn) {
+          @apply !text-multi-white hover:!text-multi-green-light font-extrabold underline-offset-4 hover:underline;
+        }
       }
     }
   }
-  .select {
-    & button {
-      @apply text-multiBrown;
+  & .btn {
+    @apply bg-multi-brown text-multi-green-light hover:!text-multi-brown hover:!bg-multi-green-light hover:shadow-multi !font-page w-fit font-extrabold transition-all duration-500;
+    &.btn-cta {
+      @apply rounded-full px-4 py-2;
     }
-    &.errorSelect {
-      & button {
-        @apply text-red-900;
+  }
+  & a {
+    &.whatsapp {
+      @apply text-multi-white !bg-multi-green-dark h-[60px] min-w-[60px] overflow-hidden font-extrabold transition-all duration-500;
+    }
+  }
+  & #menu {
+    & .MuiMenu-paper {
+      @apply bg-multi-green-light/90 w-full rounded-lg p-0 backdrop-blur-lg;
+    }
+    & .menu-item {
+      @apply text-multi-brown hover:bg-multi-brown hover:text-multi-green-light m-0 p-0 font-extrabold no-underline transition-all duration-500;
+      & li,
+      & a {
+        @apply w-full px-3 py-4;
       }
-      & .MuiAutocomplete-inputRoot {
-        @apply !bg-red-400/80;
+      & .active {
+        @apply bg-multi-brown text-multi-green-light hover:shadow-multi;
       }
     }
   }
-  .modal {
+  & .modal {
     & *::-webkit-scrollbar,
     & *::-webkit-scrollbar-thumb,
     & *::-webkit-scrollbar-track {
-      @apply m-0 rounded-br-lg rounded-tr-lg shadow-none hover:shadow-none;
-    }
-    &.MuiModal-root {
-      @apply !transition-all !duration-700;
-      & .MuiPaper-root {
-        @apply h-fit max-h-[90%] min-w-[75%] max-w-[75%] rounded-lg bg-multiGray-light p-5 text-multiGray-dark shadow-multi backdrop-blur-lg transition-all duration-700;
-      }
+      @apply m-0 rounded-tr-lg rounded-br-lg shadow-none hover:shadow-none;
     }
     & .MuiBackdrop-root,
     & .MuiModal-backdrop {
-      @apply bg-multiGreen-xLight/50 backdrop-blur-sm;
+      @apply bg-multi-black/70 backdrop-blur-sm;
     }
     &.spinner {
       & .MuiPaper-root {
         @apply bg-transparent shadow-none backdrop-blur-none;
       }
-      & .MuiCircularProgress-root {
-        @apply text-multiBrown;
-      }
-      & p {
-        @apply text-multiBrown;
+      & .MuiCircularProgress-root,
+      & h4 {
+        @apply text-multi-green-light font-title font-extrabold;
       }
     }
     &.article {
@@ -306,13 +180,13 @@
         @apply m-0 rounded-none shadow-none hover:shadow-none;
       }
       & .MuiPaper-root {
-        @apply bg-multiGray-light p-0 !transition-all !duration-700;
+        @apply bg-multi-white p-0 !transition-all !duration-700;
       }
       & .articleTitle {
-        @apply bg-multiGreen-xLight text-multiBrown;
+        @apply bg-multi-green-light text-multi-brown;
       }
       & .articleContent {
-        @apply px-0 text-multiGray-light;
+        @apply text-multi-white px-0;
         & ul {
           @apply px-5;
           & li {
@@ -322,22 +196,67 @@
       }
     }
   }
-}
 
-@layer utilities {
-}
-
-a[disabled],
-.disabled,
-.button[disabled],
-.MuiFormLabel-root.Mui-disabled,
-.MuiInputBase-root.Mui-disabled,
-.MuiInput.Mui-disabled {
-  @apply pointer-events-none !bg-multiGray-dark/50 !text-multiGray-light before:!border-none;
-  &.button {
-    @apply !shadow-none;
+  & .MuiList-root {
+    @apply shadow-multi bg-multi-green-light/20 overflow-auto rounded-lg;
+    & .MuiListItemText-primary {
+      @apply text-multi-brown font-title font-extrabold;
+    }
+    & .MuiListItemText-secondary {
+      @apply font-page text-[1rem] text-inherit;
+    }
+    & .MuiAvatar-root {
+      @apply bg-multi-brown text-multi-white;
+    }
+    &::-webkit-scrollbar {
+      @apply !rounded-tr-lg !rounded-br-lg;
+    }
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar-thumb {
+      @apply !rounded-tr-lg !rounded-br-lg;
+    }
   }
-}
-.MuiFormLabel-root.Mui-disabled {
-  @apply !bg-transparent;
+  & .svgFile {
+    @apply w-[24px];
+  }
+  & .map {
+    @apply z-[1] !h-[350px] !w-[100%];
+    & .leaflet-popup .leaflet-popup-content-wrapper,
+    & .leaflet-tooltip {
+      @apply bg-multi-brown text-multi-green-light shadow-multi rounded-md border-none p-2 text-sm font-bold;
+    }
+    & .leaflet-tooltip::before {
+      @apply border-t-multi-brown;
+    }
+    & .leaflet-popup .leaflet-popup-content {
+      @apply flex items-center justify-center;
+    }
+  }
+  & form {
+    & .MuiInputBase-root {
+      @apply hover:bg-multi-green-light/50 focus-within:bg-multi-green-light/50 hover:border-multi-brown focus-within:text-multi-brown text-multi-black focus-within:border-multi-brown font-page rounded-none rounded-t-lg border border-transparent bg-transparent font-bold transition-all duration-500;
+      &.MuiInputBase-root::after,
+      &.Mui-focused::after {
+        @apply border-multi-brown border-[1px] border-solid transition-transform duration-500;
+      }
+    }
+    & .error {
+      @apply rounded-t-lg bg-red-400/40 text-red-700 hover:bg-transparent;
+    }
+  }
+  & .MuiAutocomplete-listbox {
+    @apply bg-multi-gray;
+    & .MuiAutocomplete-option {
+      @apply text-multi-brown hover:text-multi-green-light hover:!bg-multi-brown font-extrabold transition-all duration-500;
+      &.Mui-focused {
+        @apply bg-multi-black/20;
+        &[aria-selected="true"] {
+          @apply bg-multi-black/50 text-multi-green-light;
+        }
+      }
+      &[aria-selected="true"] {
+        @apply bg-multi-black/50 text-multi-green-light;
+      }
+    }
+  }
 }

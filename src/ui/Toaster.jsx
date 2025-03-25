@@ -1,26 +1,20 @@
-import { useSelector, useDispatch } from "react-redux";
-import { Snackbar, Alert } from "@mui/material";
-import {
-  resetFormData,
-  resetToasterMessage,
-} from "@/features/emails/emails.slice";
+import { Alert, Snackbar } from "@mui/material";
+import { setMessage } from "@store/slices/toaster.slice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Toaster = ({ className = "", ...props }) => {
-  const { alertOpen, message, error, success } = useSelector(
-    (state) => state.emails,
-  );
+const Toaster = () => {
+  const { message, severity } = useSelector((state) => state.toaster);
   const dispatch = useDispatch();
 
   const handleClose = () => {
-    dispatch(resetToasterMessage());
-    success && dispatch(resetFormData());
+    dispatch(setMessage({ message: "", severity: "success" }));
   };
 
   return (
     <>
       {message.length > 0 && (
         <Snackbar
-          open={alertOpen && true}
+          open={true}
           autoHideDuration={10000}
           anchorOrigin={{ vertical: "top", horizontal: "center" }}
           onClose={handleClose}
@@ -28,9 +22,8 @@ const Toaster = ({ className = "", ...props }) => {
           <Alert
             variant="filled"
             sx={{ width: "100%" }}
-            className={`alert solid ${className}`}
-            severity={error ? "error" : "success"}
-            {...props}
+            severity={severity}
+            className="flex items-center !rounded-full"
           >
             {message}
           </Alert>

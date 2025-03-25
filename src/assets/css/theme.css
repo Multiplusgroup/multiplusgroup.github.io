@@ -1,0 +1,26 @@
+@import "./animations.css";
+
+@theme {
+  --color-multi-brown: #914b03;
+  --color-multi-green-dark: #49a909;
+  --color-multi-green-mid: #b4f200;
+  --color-multi-green: #83f15e;
+  --color-multi-green-light: #c8dfab;
+  --color-multi-gray: #cececece;
+  --color-multi-white: #efefef;
+  --color-multi-black: #1b1c1d;
+  --height-screen: 100dvh;
+  --page: "Reddit Sans Condensed", sans-serif;
+  --title: "Roboto", sans-serif;
+  --shadow-multi: #1b1c1d 0 0 5px;
+  --shadow-multi-inset: #1b1c1d 0 0 5px inset;
+  --animate-slide-top: slide-top 1s ease-in-out 1s both;
+  --animate-slide-left: slide-left 1s ease-in-out;
+  --animate-slide-right: slide-right 1s ease-in-out;
+  --animate-slide-bottom: slide-bottom 1s ease-in-out 1s both;
+}
+
+@theme inline {
+  --font-page: var(--page);
+  --font-title: var(--title);
+}

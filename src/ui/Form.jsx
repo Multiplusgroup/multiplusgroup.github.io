@@ -1,14 +1,12 @@
 import { DevTool } from "@hookform/devtools";
-const isDev = import.meta.env.DEV;
 
-const Form = ({ children, className = "", ...props }) => {
-  const { control } = props;
+const Form = ({ children, control, className = "", ...props }) => {
   return (
     <>
-      <form className={`form ${className}`} {...props}>
+      <form className={className} {...props} noValidate>
         {children}
       </form>
-      {isDev && <DevTool control={control} placement="bottom-left" />}
+      {import.meta.env.DEV && <DevTool control={control} />}
     </>
   );
 };

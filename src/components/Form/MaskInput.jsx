@@ -1,11 +1,11 @@
-import FormError from "@/components/Form/ErrorMessage";
-import inputMask from "@/utils/inputMask";
+import FormError from "@components/Form/ErrorMessage";
 import {
   Grid2 as Grid,
   InputAdornment,
   InputLabel,
   TextField,
 } from "@mui/material";
+import inputMask from "@utils/inputMask";
 import { forwardRef } from "react";
 import { Controller } from "react-hook-form";
 import { IMaskInput } from "react-imask";
@@ -27,22 +27,29 @@ const MaskedInput = forwardRef((props, ref) => {
 });
 MaskedInput.displayName = "TextField";
 
-const InputMask = ({
+const MaskInput = ({
   className = "",
-  InputProps,
+  variant = "filled",
   startIcon,
   endIcon,
   control,
-  label,
+  fieldName,
   mask,
+  placeholder,
+  hiddenLabel = true,
   ...props
 }) => {
   const { id, type, errors } = props;
   return (
     <Grid className={`${className}`}>
-      <InputLabel className="label" htmlFor={id}>
-        {label}
-      </InputLabel>
+      {hiddenLabel && (
+        <InputLabel
+          className={`!font-title !text-multi-brown !font-extrabold transition-all duration-500 ${errors && "!text-red-700"}`}
+          htmlFor={id}
+        >
+          {fieldName}
+        </InputLabel>
+      )}
       <Controller
         control={control}
         name={id}
@@ -56,24 +63,36 @@ const InputMask = ({
             onChange={(value) => onChange(value || "")}
             inputRef={ref}
             ref={ref}
-            className="w-full"
-            variant="filled"
+            variant={variant}
+            size={hiddenLabel && "small"}
+            hiddenLabel={hiddenLabel}
+            label={!hiddenLabel ? fieldName : null}
+            placeholder={placeholder}
             slotProps={{
-              ...InputProps,
               input: {
                 startAdornment: startIcon && (
-                  <InputAdornment position="start">{startIcon}</InputAdornment>
+                  <InputAdornment
+                    position="start"
+                    className={`${errors && "!text-multi-white"}`}
+                  >
+                    {startIcon}
+                  </InputAdornment>
                 ),
                 endAdornment: endIcon && (
-                  <InputAdornment position="end">{endIcon}</InputAdornment>
+                  <InputAdornment
+                    position="end"
+                    className={`${errors && "!text-multi-white"}`}
+                  >
+                    {endIcon}
+                  </InputAdornment>
                 ),
-                className: `${errors && "error"}`,
                 inputComponent: MaskedInput,
                 inputProps: {
                   mask,
                 },
               },
             }}
+            className={`w-full ${errors && "error"}`}
             {...props}
             {...field}
           />
@@ -84,4 +103,4 @@ const InputMask = ({
   );
 };
 
-export default InputMask;
+export default MaskInput;

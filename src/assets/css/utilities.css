@@ -1,0 +1,11 @@
+@utility clip-path-circle-left {
+  clip-path: circle(110% at 0% 50%);
+}
+
+@utility clip-path-circle-right {
+  clip-path: circle(110% at 100% 50%);
+}
+
+@utility clip-path-rectangle {
+  clip-path: rect(0 100% 100% 0);
+}

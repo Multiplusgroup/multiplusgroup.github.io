@@ -1,18 +1,23 @@
-import { FormHelperText as BaseFormHelperText, Fade } from "@mui/material";
-import { forwardRef } from "react";
+import { Collapse, FormHelperText } from "@mui/material";
+import { useEffect, useState } from "react";
 
-const FormHelperText = forwardRef((props, ref) => {
-  return <BaseFormHelperText {...props} ref={ref}></BaseFormHelperText>;
-});
-FormHelperText.displayName = "FormHelperText";
+const ErrorMessage = ({ text, className = "", ...props }) => {
+  const [isVisible, setIsVisible] = useState(false);
 
-const ErrorMessage = ({ text, className, ...props }) => {
+  useEffect(() => {
+    setIsVisible(Boolean(text));
+    return () => setIsVisible(false);
+  }, [text]);
+
   return (
-    <Fade in={text}>
-      <FormHelperText className={`formError ${className}`} {...props}>
-        {text}
+    <Collapse in={isVisible}>
+      <FormHelperText
+        className={`${className} !font-extrabold !text-red-700`}
+        {...props}
+      >
+        {text ?? " "}
       </FormHelperText>
-    </Fade>
+    </Collapse>
   );
 };
 
