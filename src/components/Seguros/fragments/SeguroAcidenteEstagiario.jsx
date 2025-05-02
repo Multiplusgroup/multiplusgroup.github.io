@@ -1,7 +1,7 @@
 import ImgSeguro from "@assets/img/seguros/img_16.jpg";
 import List from "@components/List";
 import { beneficios, quemContrata } from "@constants/listItems";
-import { Breadcrumbs, Button, Divider, Grid2 as Grid } from "@mui/material";
+import { Breadcrumbs, Button, Divider, Grid } from "@mui/material";
 import { Link } from "@tanstack/react-router";
 import AnimatedSection from "@ui/AnimatedSection";
 import Heading from "@ui/Heading";

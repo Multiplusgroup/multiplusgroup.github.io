@@ -6,7 +6,7 @@ import MaskInput from "@components/Form/MaskInput";
 import TextInput from "@components/Form/TextInput";
 import { horarioOpts, meioOpts, motivoOpts } from "@constants/selectOptions";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Grid2 as Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { setMessage } from "@store/slices/toaster.slice";
 import AnimatedSection from "@ui/AnimatedSection";
 import Form from "@ui/Form";

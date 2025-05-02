@@ -8,7 +8,7 @@ import {
   mdiPhone,
   mdiWhatsapp,
 } from "@mdi/js";
-import { Divider, Grid2 as Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import AnimatedSection from "@ui/AnimatedSection";
 import Heading from "@ui/Heading";
 

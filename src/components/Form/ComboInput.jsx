@@ -2,7 +2,7 @@ import ErrorMessage from "@components/Form/ErrorMessage";
 import {
   Autocomplete as BaseAutocomplete,
   TextField as BaseTextField,
-  Grid2 as Grid,
+  Grid,
   InputLabel,
 } from "@mui/material";
 import { Controller } from "react-hook-form";

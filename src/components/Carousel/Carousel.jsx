@@ -2,7 +2,7 @@ import StyledBack from "@components/Carousel/StyledBack";
 import StyledDot from "@components/Carousel/StyledDot";
 import StyledNext from "@components/Carousel/StyledNext";
 import { responsiveHero } from "@constants/responsiveCarousel";
-import { Grid2 as Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import BaseCarousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 

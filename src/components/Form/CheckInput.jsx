@@ -1,5 +1,5 @@
 import ErrorMessage from "@components/Form/ErrorMessage";
-import { Checkbox as BaseCheckbox, Grid2 as Grid } from "@mui/material";
+import { Checkbox as BaseCheckbox, Grid } from "@mui/material";
 import { Controller } from "react-hook-form";
 
 const Checkbox = ({ className = "", control, ...props }) => {

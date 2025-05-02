@@ -1,4 +1,4 @@
-import { Grid2 as Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import { Link } from "@tanstack/react-router";
 
 const date = new Date().getFullYear();

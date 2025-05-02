@@ -1,5 +1,5 @@
 import Icon from "@mdi/react";
-import { Grid2 as Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import SvgIcon from "@mui/material/SvgIcon";
 import PropTypes from "prop-types";
 import { forwardRef } from "react";

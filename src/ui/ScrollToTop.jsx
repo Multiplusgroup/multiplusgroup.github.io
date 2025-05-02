@@ -1,5 +1,5 @@
 import { KeyboardArrowUp } from "@mui/icons-material";
-import { Fab, Fade, Grid2 as Grid, useScrollTrigger } from "@mui/material";
+import { Fab, Fade, Grid, useScrollTrigger } from "@mui/material";
 import { useLocation } from "@tanstack/react-router";
 import { useEffect } from "react";
 

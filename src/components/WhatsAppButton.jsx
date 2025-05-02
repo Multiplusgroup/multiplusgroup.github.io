@@ -1,5 +1,5 @@
 import { WhatsApp } from "@mui/icons-material";
-import { Button, Grid2 as Grid, IconButton } from "@mui/material";
+import { Button, Grid, IconButton } from "@mui/material";
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 

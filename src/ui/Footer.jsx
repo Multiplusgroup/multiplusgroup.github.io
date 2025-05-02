@@ -1,7 +1,7 @@
 import Copyright from "@components/Footer/Copyright";
 import LogoFooter from "@components/Footer/LogoFooter";
 import { NAV_LINKS } from "@constants/links";
-import { Grid2 as Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import AnimatedFooter from "@ui/AnimatedFooter";
 import Heading from "@ui/Heading";
 

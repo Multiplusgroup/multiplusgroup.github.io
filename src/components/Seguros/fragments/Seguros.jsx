@@ -84,7 +84,7 @@ const Seguros = () => {
           })}
         </Carousel>
       </AnimatedSection>
-      <AnimatedSection className="flex!w-[90%] mx-auto mt-[4rem] flex-col justify-center gap-5 md:!w-[80%]">
+      <AnimatedSection className="mx-auto mt-[4rem] flex !w-[90%] flex-col justify-center gap-5 md:!w-[80%]">
         <Divider className="bg-multi-brown/50 w-full" />
       </AnimatedSection>
       <AnimatedSection

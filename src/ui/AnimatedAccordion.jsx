@@ -6,7 +6,7 @@ import {
   AccordionSummary,
   Button,
   Divider,
-  Grid2 as Grid,
+  Grid,
 } from "@mui/material";
 import Heading from "@ui/Heading";
 import { useState } from "react";

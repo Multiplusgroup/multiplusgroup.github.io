@@ -1,7 +1,7 @@
 import ImgError from "@assets/img/Erro.png";
 import BackButton from "@components/BackButton";
 import Card from "@components/Card";
-import { CardMedia, Grid2 as Grid } from "@mui/material";
+import { CardMedia, Grid } from "@mui/material";
 import { Link } from "@tanstack/react-router";
 import AnimatedSection from "@ui/AnimatedSection";
 import Heading from "@ui/Heading";

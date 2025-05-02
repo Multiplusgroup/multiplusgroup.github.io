@@ -1,6 +1,6 @@
 import { NAV_LINKS } from "@constants/links";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import { Grid2 as Grid, IconButton, Menu, MenuItem } from "@mui/material";
+import { Grid, IconButton, Menu, MenuItem } from "@mui/material";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 

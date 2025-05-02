@@ -1,5 +1,5 @@
 import { NAV_LINKS } from "@constants/links";
-import { Grid2 as Grid, Tab, Tabs } from "@mui/material";
+import { Grid, Tab, Tabs } from "@mui/material";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 
